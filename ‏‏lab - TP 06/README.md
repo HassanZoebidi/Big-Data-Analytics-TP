@@ -2,7 +2,7 @@
 
 ## 1. Running Cassandra with Docker
 
-### 🇬🇧 English
+###  English
 
 To start a Cassandra server using Docker, run:
 
@@ -31,7 +31,7 @@ docker cp path/to/restaurants_inspections.csv cassandra:/
 
 ------------------------------------------------------------------------
 
-### 🇦🇪 العربية
+###  العربية
 
 لتشغيل خادم كاساندرا باستخدام دوكر، نفّذ:
 
@@ -224,4 +224,3 @@ So the number of rows is:
 
 ------------------------------------------------------------------------
 
-# END
