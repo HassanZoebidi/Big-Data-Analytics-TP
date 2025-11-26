@@ -1,4 +1,4 @@
-@"
+
 # 🐳 TP04 – Dockerized Power BI Project
 
 **Author:** Hassan Zoebidi  
@@ -152,4 +152,4 @@ docker ps -a
 
 **Author:** *Hassan Zoebidi*  
 **Docker Hub:** https://hub.docker.com/r/hassanzoebidi/powerbi-tp3
-"@ | Set-Content -Encoding utf8 README.md
+
