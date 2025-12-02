@@ -1,0 +1,76 @@
+version: '3.8'
+services:
+  controller:
+    image: apache/kafka:4.1.1
+    container_name: kafka-controller
+    environment:
+      KAFKA_PROCESS_ROLES: controller
+      KAFKA_NODE_ID: 1
+      KAFKA_CONTROLLER_QUORUM_VOTERS: "1@kafka-controller:29093"
+      KAFKA_LISTENERS: "CONTROLLER://0.0.0.0:29093"
+      KAFKA_CONTROLLER_LISTENER_NAMES: "CONTROLLER"
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: "CONTROLLER:PLAINTEXT"
+    ports:
+      - "29093:29093"
+    volumes:
+      - kc_ctrl:/var/lib/kafka/controller
+
+  broker1:
+    image: apache/kafka:4.1.1
+    container_name: kafka-broker-1
+    depends_on:
+      - controller
+    environment:
+      KAFKA_PROCESS_ROLES: broker
+      KAFKA_NODE_ID: 2
+      KAFKA_CONTROLLER_QUORUM_VOTERS: "1@kafka-controller:29093"
+      KAFKA_LISTENERS: "PLAINTEXT://0.0.0.0:19092,CONTROLLER://0.0.0.0:29093"
+      KAFKA_ADVERTISED_LISTENERS: "PLAINTEXT://localhost:19092"
+      KAFKA_CONTROLLER_LISTENER_NAMES: "CONTROLLER"
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: "CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT"
+    ports:
+      - "19092:19092"
+    volumes:
+      - kc_b1:/var/lib/kafka/data
+
+  broker2:
+    image: apache/kafka:4.1.1
+    container_name: kafka-broker-2
+    depends_on:
+      - controller
+    environment:
+      KAFKA_PROCESS_ROLES: broker
+      KAFKA_NODE_ID: 3
+      KAFKA_CONTROLLER_QUORUM_VOTERS: "1@kafka-controller:29093"
+      KAFKA_LISTENERS: "PLAINTEXT://0.0.0.0:29092,CONTROLLER://0.0.0.0:29093"
+      KAFKA_ADVERTISED_LISTENERS: "PLAINTEXT://localhost:29092"
+      KAFKA_CONTROLLER_LISTENER_NAMES: "CONTROLLER"
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: "CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT"
+    ports:
+      - "29092:29092"
+    volumes:
+      - kc_b2:/var/lib/kafka/data
+
+  broker3:
+    image: apache/kafka:4.1.1
+    container_name: kafka-broker-3
+    depends_on:
+      - controller
+    environment:
+      KAFKA_PROCESS_ROLES: broker
+      KAFKA_NODE_ID: 4
+      KAFKA_CONTROLLER_QUORUM_VOTERS: "1@kafka-controller:29093"
+      KAFKA_LISTENERS: "PLAINTEXT://0.0.0.0:39092,CONTROLLER://0.0.0.0:29093"
+      KAFKA_ADVERTISED_LISTENERS: "PLAINTEXT://localhost:39092"
+      KAFKA_CONTROLLER_LISTENER_NAMES: "CONTROLLER"
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: "CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT"
+    ports:
+      - "39092:39092"
+    volumes:
+      - kc_b3:/var/lib/kafka/data
+
+volumes:
+  kc_ctrl:
+  kc_b1:
+  kc_b2:
+  kc_b3:

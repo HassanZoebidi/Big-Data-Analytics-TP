@@ -1,0 +1,29 @@
+services:
+  kafka:
+    image: apache/kafka:4.1.1
+    container_name: kafka
+    restart: unless-stopped
+    ports:
+      - "9092:9092"   # client (PRODUCER/CONSUMER)
+      - "9093:9093"   # controller internal listener
+    environment:
+      # تُخبر Kafka أن هذه الحاوية تعمل ككلٍّ من controller و broker
+      KAFKA_PROCESS_ROLES: "broker,controller"
+      # مُعرّف العقدة/الوسيط
+      KAFKA_NODE_ID: "1"
+      # تعريف المُصوِّتين (voters) لوضع الكوايوم (هنا single-node)
+      KAFKA_CONTROLLER_QUORUM_VOTERS: "1@localhost:9093"
+      # مستمعو الشبكة: بروتوكول عادي + بروتوكول controller
+      KAFKA_LISTENERS: "PLAINTEXT://0.0.0.0:9092,CONTROLLER://0.0.0.0:9093"
+      # ما سيعلن للمستخدمين (اذا تعمل محلياً اترك localhost، أمّا على شبكة/VM فضع IP قابل للوصول)
+      KAFKA_ADVERTISED_LISTENERS: "PLAINTEXT://localhost:9092"
+      KAFKA_CONTROLLER_LISTENER_NAMES: "CONTROLLER"
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: "CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT"
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: "1"
+      # اختياري: مكان تخزين بيانات الوِسْط داخل الحاوية
+      KAFKA_LOG_DIRS: "/var/lib/kafka/data"
+    volumes:
+      - kafka_data:/var/lib/kafka/data
+
+volumes:
+  kafka_data:
