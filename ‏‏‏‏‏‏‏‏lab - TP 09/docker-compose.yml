@@ -1,0 +1,37 @@
+services:
+  spark-master:
+    image: apache/spark:3.5.1-scala2.12-java11-python3-ubuntu
+    container_name: spark-master
+    hostname: spark-master
+    user: "0:0"
+    command: /bin/bash -c "/opt/spark/sbin/start-master.sh && tail -f /dev/null"
+    ports:
+      - "7077:7077"
+      - "8080:8080"
+    volumes:
+      - ./:/workspace
+
+  spark-worker:
+    image: apache/spark:3.5.1-scala2.12-java11-python3-ubuntu
+    container_name: spark-worker
+    depends_on:
+      - spark-master
+    user: "0:0"
+    command: /bin/bash -c "/opt/spark/sbin/start-worker.sh spark://spark-master:7077 && tail -f /dev/null"
+    volumes:
+      - ./:/workspace
+
+  builder:
+    image: maven:3.9-eclipse-temurin-11
+    container_name: tp9-builder
+    working_dir: /workspace
+    entrypoint: ["tail", "-f", "/dev/null"]
+    volumes:
+      - ./:/workspace
+
+  nc:
+    image: alpine:3.19
+    container_name: tp9-nc
+    entrypoint: ["tail", "-f", "/dev/null"]
+    ports:
+      - "9999:9999"

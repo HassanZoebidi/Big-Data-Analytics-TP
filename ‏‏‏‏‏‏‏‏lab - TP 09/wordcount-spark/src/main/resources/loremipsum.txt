@@ -1,0 +1,2 @@
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Spark word count demo.
+Spark makes big data fun. Hadoop also helps manage data at scale.
