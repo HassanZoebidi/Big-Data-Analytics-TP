@@ -11,7 +11,7 @@
 
 ## محتوى الأعمال التطبيقية
 
-### [Lab - TP 01: Web Scraping](./lab - TP 01/)
+### [Lab - TP 01: Web Scraping](./lab%20-%20TP%2001/)
 يهدف هذا العمل التطبيقي إلى التعرف على تقنيات جمع البيانات من الويب، من خلال:
 - استخراج البيانات من صفحات ويب متعددة.
 - تحليل بنية HTML.
@@ -19,7 +19,7 @@
 
 ---
 
-### [Lab - TP 02: Reading Big Data Files](./lab-TP-02/)
+### [Lab - TP 02: Reading Big Data Files](./lab%20-%20TP%2002/)
 يركز هذا العمل على التعامل مع الملفات كبيرة الحجم (أكثر من 5GB)، مع دراسة:
 - قراءة البيانات باستخدام التقسيم إلى أجزاء (Chunking).
 - المعالجة المتوازية.
@@ -27,7 +27,7 @@
 
 ---
 
-### [Lab - TP 03: Full Data Analysis Project](./lab-TP-03/)
+### [Lab - TP 03: Full Data Analysis Project](./lab%20-%20TP%2003/)
 يتناول هذا العمل مشروع تحليل بيانات متكامل يشمل:
 - تنظيف البيانات ومعالجتها المسبقة.
 - التحليل الإحصائي.
@@ -35,7 +35,7 @@
 
 ---
 
-### [Lab - TP 04: Docker Containerization](./lab-TP-04/)
+### [Lab - TP 04: Docker Containerization](./lab%20-%20TP%2004/)
 يهدف هذا العمل إلى التعرف على تقنيات الحاويات باستخدام Docker، من خلال:
 - تغليف تطبيقات تحليل البيانات داخل حاويات.
 - إنشاء وإدارة صور Docker.
@@ -43,7 +43,7 @@
 
 ---
 
-### [Lab - TP 05: MongoDB NoSQL Database](./lab-TP-05/)
+### [Lab - TP 05: MongoDB NoSQL Database](./lab%20-%20TP%2005/)
 يقدم هذا العمل مقدمة حول قواعد البيانات غير العلائقية (NoSQL) باستخدام MongoDB، مع التركيز على:
 - نمذجة البيانات المعتمدة على الوثائق.
 - عمليات CRUD.
@@ -51,7 +51,7 @@
 
 ---
 
-### [Lab - TP 06: Cassandra NoSQL Database](./lab-TP-06/)
+### [Lab - TP 06: Cassandra NoSQL Database](./lab%20-%20TP%2006/)
 يستكشف هذا العمل قاعدة البيانات الموزعة Apache Cassandra، مع التركيز على:
 - التخزين ذو الأعمدة العريضة (Wide-Column).
 - توزيع البيانات.
@@ -59,7 +59,7 @@
 
 ---
 
-### [Lab - TP 07: Apache Kafka Streaming](./lab-TP-07/)
+### [Lab - TP 07: Apache Kafka Streaming](./lab%20-%20TP%2007/)
 يهدف هذا العمل إلى تطبيق مفاهيم البث اللحظي للبيانات (Real-Time Streaming)، من خلال:
 - استخدام Apache Kafka.
 - محاكاة تدفق بيانات الحساسات.
@@ -67,7 +67,7 @@
 
 ---
 
-### [Lab - TP 08: MapReduce Simulation](./lab-TP-08/)
+### [Lab - TP 08: MapReduce Simulation](./lab%20-%20TP%2008/)
 يهدف هذا العمل إلى فهم نموذج MapReduce للحوسبة الموزعة، عبر:
 - محاكاة مهام MapReduce.
 - تحليل سجلات خوادم الويب.
@@ -75,7 +75,7 @@
 
 ---
 
-### [Lab - TP 09: Spark Batch & Streaming Processing](./lab-TP-09/)
+### [Lab - TP 09: Spark Batch & Streaming Processing](./lab%20-%20TP%2009/)
 يتناول هذا العمل منصة Apache Spark، ويشمل:
 - المعالجة التفاعلية.
 - المعالجة الدفعية (Batch Processing).
